@@ -1,5 +1,7 @@
 # myblog
 
+## It needs backend server
+
 ## Project setup
 ```
 npm install
