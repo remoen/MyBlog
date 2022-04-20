@@ -42,8 +42,10 @@
       <h2>글 쓰기</h2>
       <hr class="listLine">
       <div id="inputs">
-        <div id="inputTitle" class="inputsTexts">제목 <input v-model="title" maxlength="100" class="beforeWrite" placeholder="여기에 제목을 입력해주세요"></div>
-        <div id="inputDetail" class="inputsTexts"><h4>내용</h4> <textarea v-model="texts" maxlength="3000" class="mainInput" placeholder="여기에 내용을 작성해주세요"></textarea></div>
+        <div id="inputTitle" class="inputsTexts">제목 <input v-model="title" maxlength="100" class="beforeWrite"
+                                                           placeholder="여기에 제목을 입력해주세요"></div>
+        <div id="inputDetail" class="inputsTexts"><h4>내용</h4> <textarea v-model="texts" maxlength="3000" class="mainInput"
+                                                                        placeholder="여기에 내용을 작성해주세요"></textarea></div>
         <button v-on:click="submit(title, texts)">게시하기</button>
       </div>
     </div>
@@ -55,14 +57,14 @@ import axios from "axios";
 
 export default {
   name: 'App',
-  data(){
-    return{
+  data() {
+    return {
       page: 'read',
       title: '',
       texts: ''
     }
   },
-  methods : {
+  methods: {
     read() {
       this.page = 'read'
     },
@@ -75,14 +77,26 @@ export default {
     submit(title, texts) {
       let url = 'http://localhost:3000/post';
       let pass = parseInt(prompt("4자리의 비밀번호를 입력해주세요"));
-      if (pass < 10000 && pass > 999) {
-        alert("게시되었습니다");
-        window.location.reload()
-        return axios.post(url, {
-          title: title,
-          texts: texts,
-          pass: pass
+      if (pass.toString().length > 3 && pass.toString().length < 5) {
+
+        const data = {
+          "title": title,
+          "texts": texts,
+          "pass": pass
+        }
+
+        return axios.post(url, JSON.stringify(data), {
+          headers: {
+            "Content-Type": `application/json`,
+          },
         })
+            .then((res) => {
+              alert(res.data);
+              this.page = 'read'
+            })
+            .catch(function (error) {
+              alert(error + " 오류가 발생했습니다 다시 시도해주세요 \n반복된다면 관리자에게 연락 바랍니다")
+            })
       } else {
         alert("4자리의 숫자만 가능합니다")
       }
@@ -91,8 +105,6 @@ export default {
 }
 
 </script>
-import axios form 'axios'
-
 
 <style>
 
@@ -109,7 +121,7 @@ body {
   display: flex;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: white;
   border-bottom: solid 1px rgba(160, 160, 160, 0.3);
   height: 3.5em;
   left: 0;
