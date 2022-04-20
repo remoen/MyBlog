@@ -1,6 +1,7 @@
 # myblog
 
-## It needs backend server
+It needs backend server (MyBlogBE)
+It will upload at github.io (yet)
 
 ## Project setup
 ```
