@@ -35,12 +35,17 @@ body {
     text-align: center;
 }
 
-h1 {
+header h1 {
     color: #3c3b3b;
     letter-spacing: 0.25em;
     line-height: 1.5;
     margin: -0.125em 0 1em 0;
     text-transform: uppercase;
+    transition: 0.25s;
+}
+
+header h1:hover {
+    transform: scale(1.1);
 }
 
 #header .links {
@@ -59,6 +64,14 @@ h1 {
     list-style: none;
     margin: 0;
     padding-left: 0;
+}
+
+#header li {
+    transition: 0.25s;
+}
+
+#header li:hover {
+    transform: scale(1.1);
 }
 
 #header .links ul li:first-child {
@@ -132,6 +145,10 @@ h1 {
 #list a {
     text-decoration: none;
     color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    display: block;
 }
 
 #listBoxes {
@@ -149,4 +166,46 @@ h1 {
 
 #between {
     padding: 0.1em 0 0.1em 0;
+}
+
+#back {
+    padding: 1em 0 0 0;
+}
+
+#back button {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: aliceblue;
+    color: #1e6b7b;
+}
+
+#back button:hover {
+    background-color: #a5d5ff;
+    color: #000000;
+    transform: scale(1.1);
+}
+
+#pageSelector button {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 1em 1.2em;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: #a3cfff;
+    color: #000000;
+}
+
+#pageSelector button:hover {
+    background-color: #299aff;
+    color: #000000;
+    transform: scale(1.1);
 }
