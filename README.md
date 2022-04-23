@@ -2,6 +2,7 @@
 
 It needs backend server (MyBlogBE)
 It will upload at github.io (yet)
+\nalmost!
 
 ## Project setup
 ```
