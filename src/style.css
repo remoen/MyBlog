@@ -37,11 +37,9 @@ body {
 
 h1 {
     color: #3c3b3b;
-    font-family: "Raleway", Helvetica, sans-serif;
-    font-weight: 800;
     letter-spacing: 0.25em;
     line-height: 1.5;
-    margin: 0 0 1em 0;
+    margin: -0.125em 0 1em 0;
     text-transform: uppercase;
 }
 
@@ -129,4 +127,26 @@ h1 {
     vertical-align: top;
     text-align: left;
     align-self: center;
+}
+
+#list a {
+    text-decoration: none;
+    color: black;
+}
+
+#listBoxes {
+    border: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+    padding: 0.5em 0 0.5em 0;
+    width: 98%;
+}
+
+#list ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+#between {
+    padding: 0.1em 0 0.1em 0;
 }
